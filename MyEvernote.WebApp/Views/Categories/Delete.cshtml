@@ -1,0 +1,64 @@
+﻿@model MyEvernote.Entitie.Category
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="col-md-6 offset-3" style="margin-top:10px;">
+    <h3 style="color:red;">Bu Kategoriyi Silmek İstediğinizden Emin misiniz ?</h3>
+</div>
+
+<div class="col-md-6 offset-3">
+    <h5>Kategori :&nbsp;@Model.Title</h5>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUsername)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Geri Dön", "Index",null,new { @class="btn btn-info"})
+        </div>
+    }
+</div>

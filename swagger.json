@@ -1,0 +1,121 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "PoC Project",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "paths": {
+    "/poc-project/get/cities": {
+      "get": {
+        "tags": [
+          "PocProject"
+        ],
+        "summary": "PoC Project | Şehir Listesi",
+        "description": "PoC Project | Şehir Listesi",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/poc-project/get/hospitals": {
+      "get": {
+        "tags": [
+          "PocProject"
+        ],
+        "summary": "PoC Project | Hastane Listesi",
+        "description": "PoC Project | Hastane Listesi",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/poc-project/get/doctors": {
+      "get": {
+        "tags": [
+          "PocProject"
+        ],
+        "summary": "PoC Project | Doktor Listesi",
+        "description": "PoC Project | Doktor Listesi",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/poc-project/get/hospitals/{cityId}": {
+      "post": {
+        "tags": [
+          "PocProject"
+        ],
+        "summary": "PoC Project | CityId parametresine göre HospitalId bilgisi",
+        "description": "PoC Project | CityId parametresine göre HospitalId bilgisi",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/poc-project/get/doctors/{hospitalId}": {
+      "post": {
+        "tags": [
+          "PocProject"
+        ],
+        "summary": "PoC Project | HospitalId parametresine göre DoctorId bilgisi",
+        "description": "PoC Project | HospitalId parametresine göre DoctorId bilgisi",
+        "parameters": [
+          {
+            "name": "hospitalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Authorization": {
+        "type": "apiKey",
+        "description": "Please provide an Authorization header",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Authorization": [ ]
+    }
+  ]
+}

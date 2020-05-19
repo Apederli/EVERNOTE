@@ -1,0 +1,58 @@
+﻿    @using MyEvernote.Entitie.ValueObjects
+@model RegisterViewModel
+@{
+    ViewBag.Title = "MyEvernote - Kullanıcı Kayıt Sayfası";
+}
+
+<link href="~/Content/Login-Register.css" rel="stylesheet" />
+<link href="~/Content/ValidationSummary.css" rel="stylesheet" />
+<style type="text/css">
+    }
+</style>
+<section class="login-info">
+    <div class="container">
+        <div class="container" style="margin-top:20px;">
+            <div class="form-header">
+                <h1 class="text-center ">KAYDOL</h1>
+            </div>
+            @using (Html.BeginForm())
+            {
+                <div class="main-content">
+                    @Html.ValidationSummary(false)
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><span class="fas fa-signature"></span></span>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Ad" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><span class="fas fa-signature"></span></span>
+                        @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", placeholder = "Soyad" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><span class="fas fa-user"></span></span>
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><span class="fas fa-envelope"></span></span>
+                        @Html.TextBoxFor(model => model.EMail, new { @class = "form-control", placeholder = "E-Posta" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><span class="fas fa-lock"></span></span>
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Şifre", @type = "password" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><span class="fas fa-lock"></span></span>
+                        @Html.TextBoxFor(model => model.RePassword, new { @class = "form-control", placeholder = "Şifre Tekrarı", @type = "password" })
+                    </div>
+                    <div class="container">
+                        <div class="form-group ">
+                            <button href="#" type="submit" class="btn btn-primary btn-lg btn-block login-button">KAYDOL</button>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+

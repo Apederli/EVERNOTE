@@ -1,0 +1,11 @@
+﻿.validation-summary-errors ul li{
+    margin-top:7px;
+   color:red;
+ 
+}
+
+.validation-summary-errors {
+    border:solid;
+    border-color: red;
+    border-radius:5px;
+}

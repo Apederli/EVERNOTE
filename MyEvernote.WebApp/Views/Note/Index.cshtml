@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MyEvernote.Entitie.Note>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <div class="col-md-12 text-center">
+        <h2>KATEGORİLER</h2>
+        <p>
+            @Html.ActionLink("Yeni Kategori Oluştur", "Create")
+        </p>
+    </div>
+
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Text)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LikeCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedUsername)
+                </th>
+                <th>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr >
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LikeCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedUsername)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="/Note/Edit/@item.Id">
+                            <i class="fas fa-edit"></i> 
+                        </a>
+                        <a class="btn btn-info btn-sm" href="/Note/Details/@item.Id">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="/Note/Delete/@item.Id">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                        <button data-toggle="modal" data-target="#modal_comment" type="button" data-note-id="@item.Id" data-edit-mode="false" class="btn btn-dark btn-sm">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+@Bootstrap.ModalPopup(id: "modal_comment", title: "Yorumlar")
+<script src="~/Scripts/comment.js"></script>

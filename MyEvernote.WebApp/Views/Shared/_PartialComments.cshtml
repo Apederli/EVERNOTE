@@ -1,0 +1,69 @@
+﻿@using MyEvernote.Entitie
+@using MyEvernote.WebApp.Models
+@model List<Comment>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<style>
+    .editable {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        color: #ff0000;
+    }
+</style>
+
+
+@{
+    EvernoteUser evernoteUser = CurrentSession.User;
+}
+
+@foreach (Comment item in Model)
+{
+    <div class="media">
+        <div class="media-letf media-top">
+            <div class="media-object">
+                <i class="fas fa-comment"></i>
+            </div>
+        </div>
+        <div class="media-body">
+            <span id="comment_text_@item.Id" contenteditable="false">
+                @item.Text
+            </span>
+            @if (evernoteUser != null && evernoteUser.Id == item.Owner.Id)
+            {
+                <span class="float-md-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-edit-mode="false" onclick="doComment(this,'edit_clicked',@item.Id,'#comment_text_@item.Id');">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-warning btn-sm" type="button" onclick="doComment(this,'delete_clicked',@item.Id);">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </span>
+            }
+            <br />
+            <small>
+                <i class="fa fa-clock" aria-hidden="true"></i> @item.ModifiedOn&nbsp;
+                <i class="fas fa-user"></i> @item.Owner.Username
+            </small>
+        </div>
+    </div>
+}
+@if (evernoteUser != null)
+{
+    <div class="row">
+        <div class=" col-md-12">
+            <hr />
+        </div>
+    </div>
+<div class="input-group mb-3">
+    <input type="text" id="new_comment_text" class="form-control" placeholder="Yorum Ekle" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+        <button class="btn btn-outline-success" type="button"onclick="doComment(this,'new_clicked',-1);">
+            <i class="fa fa-paper-plane" aria-hidden="true">&nbsp;</i>Kaydet
+        </button>
+    </div>
+</div>
+}
+

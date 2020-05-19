@@ -1,0 +1,6 @@
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.DataAccessLayer\bin\Debug\netstandard2.0\MyEvernote.DataAccessLayer.deps.json
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.DataAccessLayer\bin\Debug\netstandard2.0\MyEvernote.DataAccessLayer.dll
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.DataAccessLayer\obj\Debug\netstandard2.0\MyEvernote.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.DataAccessLayer\obj\Debug\netstandard2.0\MyEvernote.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.DataAccessLayer\obj\Debug\netstandard2.0\MyEvernote.DataAccessLayer.AssemblyInfo.cs
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.DataAccessLayer\bin\Debug\netstandard2.0\MyEvernote.Entities.dll

@@ -1,0 +1,72 @@
+﻿@using MyEvernote.Entitie.Mesagge
+@model MyEvernote.WebApp.Models.ErrorViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<link href="~/Content/Login-Register.css" rel="stylesheet" />
+<style type="text/css">
+    .form-header {
+        background-color: #ff0000;
+    }
+
+    .main-content {
+        border-color: #ff0000;
+    }
+
+    .input-group {
+        color: #0fae18;
+    }
+
+        .input-group h3 {
+            color: #ff6a00;
+        }
+        
+        .input-group i {
+            color: #ff6a00;
+        }
+</style>
+
+<section class="login-info">
+    <div class="container">
+        <div class="container" style="margin-top: 20px;">
+            <div class="form-header">
+                <h1 class="text-center ">Hesap Geçersiz.</h1>
+            </div>
+
+            <div class="main-content">
+                <div class="input-group mb-3">
+                    <h3>&nbsp;&nbsp;<i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Model.Title</h3>
+                    <div class="container">
+                        <hr />
+                        <p class="text-justify">
+                            @foreach (ErrorMessageObj item in Model.Items)
+                            {
+                                @item.Message<br />
+                            }
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@{
+    string js = null;
+    if (Model.RedicrtingUrl != null)
+    {
+        js = "setTimeout(function(){window.location = '" + Model.RedicrtingUrl + " ' ; }, " + Model.RedirectingTimeout + ");";
+    }
+}
+
+<script>
+    $(function () {
+        $("footer").hide();
+        @Html.Raw(js);
+    });
+</script>
+
+
+

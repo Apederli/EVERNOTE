@@ -1,0 +1,150 @@
+﻿@using MyEvernote.Entitie
+@model EvernoteUser
+@{
+    ViewBag.Title = "Profil Düzenle";
+}
+<style>
+    body {
+        margin-top: 20px;
+        background: #f8f8f8
+    }
+</style>
+<h2 class="text-center">@ViewBag.Title</h2>
+<link href="~/Content/ValidationSummary.css" rel="stylesheet" />
+<body>
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <div class="col mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="e-profile">
+                                @using (Html.BeginForm("EditProfile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+
+                                    @Html.HiddenFor(model => model.Id)
+                                    <div class="row">
+                                        <div class="col-12 col-sm-auto mb-3">
+                                            <div class="mx-auto" style="width: 140px;">
+                                                <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                                                    <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">
+                                                        <img src="~/Images/@Model.ProfileImageFileName" width="140" height="140" />
+                                                        @Html.HiddenFor(x => x.ProfileImageFileName)
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                            <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                                <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">@(Model.Name + " " + Model.Surname)</h4>
+                                                <p class="mb-0">@Model.Email</p>
+                                                <div class="text-muted">
+                                                    @if (@Model.IsAdmin == true)
+                                                    {
+                                                        <small>Admin</small>
+                                                    }
+                                                    else
+                                                    {<small>Adminlik Yetkiniz Yok</small>}
+                                                </div>
+                                                <div class="mt-2">
+                                                    <input class="btn btn-primary" type="file" name="ProfileImage" id="ProfileImage" value="Profil Resmini Değiştir">
+                                                </div>
+                                            </div>
+                                            <div class="text-center text-sm-right">
+                                                <span class="badge badge-secondary">Kayıt Tarihi</span>
+                                                <div class="text-muted"><small>@Model.CreatedOn</small></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="" class="active nav-link">Profilnizi Düzenleyin</a></li>
+                                    </ul>
+                                    @Html.ValidationSummary(false)
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane active">
+                                            <div class="form" novalidate="">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>İsim</label>
+                                                                    @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "İsminiz" } })
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>Soyisim</label>
+                                                                    @Html.EditorFor(x => x.Surname, new { htmlAttributes = new { @class = "form-control", placeholder = "Soyisminiz" } })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>Kullanıcı İsmi</label>
+                                                                    @Html.EditorFor(x => x.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "Kullanıcı İsminiz" } })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col mb-3">
+                                                                <div class="form-group">
+                                                                    <label>Email</label>
+                                                                    @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "siz@örnek.com" } })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6 mb-3">
+                                                        <div class="mb-2"><b>Şifre Değiştirme</b></div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>Şuanki Şifre</label>
+                                                                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password", placeholder = "" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>Yeni Şifre</label>
+                                                                    @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", type = "password", placeholder = "" } })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>Yeni Şifre Tekrarı <span class="d-none d-xl-inline"></span></label>
+                                                                    @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", type = "password", placeholder = "" } })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-5 offset-sm-1 mb-3">
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col d-flex justify-content-end">
+                                                        <input class="btn btn-primary" type="submit" value="Değişiklikleri Kaydet">
+                                                        &nbsp; @Html.ActionLink("İptal", "ShowProfile", null, new { @class = "btn btn-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

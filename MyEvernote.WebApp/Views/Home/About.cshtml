@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <!-- KATEGORİLER -->
+            @Html.Partial("_PartialCategories")
+
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+            <div class="container">
+                <h2 style="margin-top:33px;">Hakkımızda</h2>
+                <hr />
+                <img class="rounded mx-auto d-block" src="http://placehold.it/500x200" alt="Third slide">
+                <p style="margin-top:">Aydoğan Pederli</p>
+            </div>
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+@section footer
+    {
+    @Html.Partial("_PartialFooter")
+}
