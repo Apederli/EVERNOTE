@@ -88,3 +88,8 @@ C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\Myevernote.C
 C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\obj\Debug\MyEvernote.WebApp.csproj.CoreCompileInputs.cache
 C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\MyEvernote.Core.dll
 C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\MyEvernote.Core.pdb
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\Microsoft.Web.Helpers.dll
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\WebMatrix.Data.dll
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\WebMatrix.WebData.dll
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\WebMatrix.Data.xml
+C:\Users\Aydog\source\repos\MyEvernote.WebApp\MyEvernote.WebApp\bin\WebMatrix.WebData.xml
